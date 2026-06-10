@@ -9,7 +9,9 @@ export async function createFollowUp(formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = FollowUpSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 

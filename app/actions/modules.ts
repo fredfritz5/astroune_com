@@ -15,7 +15,9 @@ export async function createNote(formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = NoteSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
@@ -33,7 +35,9 @@ export async function updateNote(id: string, formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = NoteSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
@@ -50,7 +54,9 @@ export async function createPainPoint(formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = PainPointSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
@@ -64,7 +70,9 @@ export async function updatePainPoint(id: string, formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = PainPointSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
@@ -80,7 +88,9 @@ export async function upsertDiscoveryAnswer(formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = DiscoveryAnswerSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
@@ -111,7 +121,9 @@ export async function createDemo(formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = DemoSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
@@ -129,7 +141,9 @@ export async function updateDemo(id: string, formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = DemoSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
@@ -145,7 +159,9 @@ export async function createObjection(formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = ObjectionSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
@@ -174,7 +190,9 @@ export async function createProposal(formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = ProposalSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
@@ -212,7 +230,9 @@ export async function upsertOnboarding(formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = OnboardingSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
@@ -256,7 +276,9 @@ export async function upsertIntelligenceLog(formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = IntelligenceLogSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
@@ -276,7 +298,9 @@ export async function addQuote(formData: FormData) {
   const session = await auth();
   if (!session?.user?.id) throw new Error("Unauthorized");
 
-  const raw = Object.fromEntries(formData.entries());
+  const raw = Object.fromEntries(
+    [...formData.entries()].map(([k, v]) => [k, v === "" ? undefined : v])
+  );
   const parsed = QuoteSchema.safeParse(raw);
   if (!parsed.success) throw new Error(parsed.error.issues[0].message);
 
